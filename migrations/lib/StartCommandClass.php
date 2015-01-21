@@ -8,8 +8,13 @@
  * @date: 21.01.2015
  * @time: 22:42
  */
+use ConsoleKit\Console,
+    ConsoleKit\Command,
+    ConsoleKit\Colors,
+    ConsoleKit\Widgets\Dialog,
+    ConsoleKit\Widgets\ProgressBar;
 
-class StartCommandClass extends ConsoleKit\Command {
+class StartCommandClass extends Command {
 
     public function execute(array $args, array $options = array())
     {
