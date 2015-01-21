@@ -5,15 +5,8 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-			"maximebf/consolekit": ">=1.0.0",
-        	"wp-cli/php-cli-tools":"*",
-        	"noodlehaus/config":"*"
-	},
-	"autoload": {
-		"classmap": [
-			"migrations/lib"
-		]
-	},
+			"cjp2600/bim-core": ">=0.0.1"
+	}
 	"config": {
 		"preferred-install": "dist"
 	}
