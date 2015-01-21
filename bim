@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+include __DIR__ . '/vendor/autoload.php';
+use ConsoleKit\Console,
+    ConsoleKit\Command,
+    ConsoleKit\Colors,
+    ConsoleKit\Widgets\Dialog,
+    ConsoleKit\Widgets\ProgressBar;
+
+$console = new Console(array(
+    'start' => 'StartCommandClass',
+));
+
+$console->run();

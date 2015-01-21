@@ -5,13 +5,13 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"maximebf/consolekit": ">=1.0.0",
+			"maximebf/consolekit": ">=1.0.0",
         	"wp-cli/php-cli-tools":"*",
         	"noodlehaus/config":"*"
 	},
 	"autoload": {
 		"classmap": [
-			"bim/lib"
+			"migrations/lib"
 		]
 	},
 	"config": {
