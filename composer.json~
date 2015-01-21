@@ -1,0 +1,21 @@
+{
+	"name": "cjp2600/bim",
+	"description": "Bitrix db migration project.",
+	"keywords": ["bitrix", "db", "migration"],
+	"license": "MIT",
+	"type": "project",
+	"require": {
+		"maximebf/consolekit": ">=1.0.0",
+        	"wp-cli/php-cli-tools":"*",
+        	"noodlehaus/config":"*"
+	},
+	"autoload": {
+		"classmap": [
+			"bim/lib"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "stable"
+}
