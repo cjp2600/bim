@@ -6,7 +6,7 @@
 	"type": "project",
 	"require": {
 			"cjp2600/bim-core": ">=0.0.1"
-	}
+	},
 	"config": {
 		"preferred-install": "dist"
 	}
