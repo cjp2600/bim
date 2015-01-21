@@ -9,6 +9,7 @@ use ConsoleKit\Console,
     ConsoleKit\Widgets\ProgressBar;
 
 
+
 $console = new Console(array(
     'start' => 'StartCommandClass',
 ));
