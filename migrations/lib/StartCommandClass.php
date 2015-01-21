@@ -9,7 +9,7 @@
  * @time: 22:42
  */
 
-class StartCommandClass extends Command {
+class StartCommandClass extends ConsoleKit\Command {
 
     public function execute(array $args, array $options = array())
     {
