@@ -11,7 +11,7 @@ use ConsoleKit\Console,
 
 
 $console = new Console(array(
-    'start' => 'StartCommandClass',
+    'start' => 'StartCommand',
 ));
 
 $console->run();
