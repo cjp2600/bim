@@ -1,0 +1,73 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Created for the project "bim"
+ *
+ * @author: Stanislav Semenov (CJP2600)
+ * @email: cjp2600@ya.ru
+ *
+ * @date: 22.01.2015
+ * @time: 10:33
+ */
+
+try {
+    install();
+} catch (Exception $e){
+    echo PHP_EOL."WARNING! : ".$e->getMessage().PHP_EOL.PHP_EOL;
+}
+
+/**
+ * install bim project
+ */
+function install()
+{
+    // check is bitrix cms
+    if (!is_dir("bitrix")) {
+        throw new Exception("Bitrix cms, not detected");
+    }
+
+    echo PHP_EOL;
+    
+    $base_path = "local";
+    if (!is_dir("local")) {
+        $base_path = "bitrix";
+    }
+    $base_init = $base_path."/php_interface/init.php";
+
+    // create php_interface if not exists
+    if (!file_exists($base_path."/php_interface/")) {
+        mkdir($base_path."/php_interface/", 0777);
+    }
+
+    // create init.php if not exist
+    if (!file_exists($base_init)) {
+        file_put_contents($base_init, '<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die(); '.PHP_EOL.PHP_EOL.'// init composer autoloader'.PHP_EOL.'require_once $_SERVER["DOCUMENT_ROOT"] . "/vendor/autoload.php";'.PHP_EOL);
+        echo "add autoload in init.php   [OK]".PHP_EOL;
+    } else {
+        $current  = file_get_contents($base_init);
+        if (!substr_count($current,"/vendor/autoload.php")){
+            $current .= PHP_EOL . PHP_EOL . '// init composer autoloader' . PHP_EOL . 'require_once $_SERVER["DOCUMENT_ROOT"] . "/vendor/autoload.php";' . PHP_EOL;
+            file_put_contents($base_init, $current);
+            echo "put autoload in init.php   [OK]".PHP_EOL;
+        }
+    }
+
+
+    // create composer.json
+    $base_composer_json = "composer.json";
+    if (!file_exists($base_composer_json)) {
+        file_put_contents($base_composer_json, '{ '.PHP_EOL.' "require": { "cjp2600/bim-core": ">=0.0.4" } '.PHP_EOL.' }');
+        echo "create composer.json   [OK]".PHP_EOL;
+    } else {
+        echo "composer.json is all ready exist   [ERROR]".PHP_EOL;
+    }
+
+    //create bim file
+    $base_bim = "bim";
+    if (!file_exists($base_bim)) {
+        file_put_contents($base_bim, '#!/usr/bin/env php'.PHP_EOL.'<?php '.PHP_EOL.'ini_set("max_execution_time", 36000); '.PHP_EOL.'define("NO_KEEP_STATISTIC", true); '.PHP_EOL.'define("NO_AGENT_STATISTIC", true); '.PHP_EOL.'define("NOT_CHECK_PERMISSIONS", true); '.PHP_EOL.' $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__); '.PHP_EOL.'require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php"); '.PHP_EOL.PHP_EOL.'\Bim\Migration::init();');
+        echo "create bim file   [OK]".PHP_EOL;
+    } else {
+        echo "bim file is all ready exist   [ERROR]".PHP_EOL;
+    }
+}
