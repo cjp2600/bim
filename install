@@ -56,7 +56,7 @@ function install()
     // create composer.json
     $base_composer_json = "composer.json";
     if (!file_exists($base_composer_json)) {
-        file_put_contents($base_composer_json, '{ '.PHP_EOL.' "require": { "cjp2600/bim-core": "dev-master" } '.PHP_EOL.' }');
+        file_put_contents($base_composer_json, '{ '.PHP_EOL.' "require": { "cjp2600/bim-core": ">=1.0.0" } '.PHP_EOL.' }');
         echo "create composer.json   [OK]".PHP_EOL;
     } else {
         echo "composer.json is all ready exist   [ERROR]".PHP_EOL;
