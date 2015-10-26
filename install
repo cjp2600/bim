@@ -63,11 +63,5 @@ function install()
     }
 
     //create bim file
-    $base_bim = "bim";
-    if (!file_exists($base_bim)) {
-        file_put_contents($base_bim, '#!/usr/bin/env php'.PHP_EOL.'<?php '.PHP_EOL.'ini_set("max_execution_time", 36000); '.PHP_EOL.'define("NO_KEEP_STATISTIC", true); '.PHP_EOL.'define("NO_AGENT_STATISTIC", true); '.PHP_EOL.'define("NOT_CHECK_PERMISSIONS", true); '.PHP_EOL.' $_SERVER["DOCUMENT_ROOT"] = dirname(__FILE__); '.PHP_EOL.'require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php"); '.PHP_EOL.PHP_EOL.'\Bim\Migration::init();');
-        echo "create bim file   [OK]".PHP_EOL;
-    } else {
-        echo "bim file is all ready exist   [ERROR]".PHP_EOL;
-    }
+    echo PHP_EOL."[DONE] use EXAMPLE: php vendor/bin/bim <command>".PHP_EOL;
 }
