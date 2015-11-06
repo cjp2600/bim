@@ -27,11 +27,9 @@ function install()
     }
 
     echo PHP_EOL;
-    
+
+    // all ways install in local
     $base_path = "local";
-    if (!is_dir("local")) {
-        $base_path = "bitrix";
-    }
     $base_init = $base_path."/php_interface/init.php";
 
     // create php_interface if not exists
